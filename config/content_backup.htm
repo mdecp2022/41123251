@@ -326,8 +326,8 @@ window.onload=function(){
 brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
 }
 &lt;/script&gt;</pre>
-<p>從 1 累加到 100:</p>
-<p><button id="score se">1 add to 100</button></p>
+<p>成績查詢:</p>
+<p><button id="score search">score search</button></p>
 <p>將 iterable 與 iterator <a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438">相關說明</a>, 利用 Brython 與 Ace Editor 整理在這個頁面.</p>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -386,7 +386,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c3a6deaf717f8f2739a4b1392a5ab10936e9693a/from_1_add_to_10_1.py"
+        url = "https://gist.github.com/41123251/131bf6a2dd798716d204d0349f501868"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -533,10 +533,10 @@ def add2(ev):
 doc["add1to100part2"].bind('click', add2)
 # 以下為運用 button2 class 的通用 gist 程式導入區
 ################################## cango_three_gears start
-cango_three_gears_url = "https://gist.githubusercontent.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d/raw/f7a85d737d6723d5e34c526d5daee990ed92c32b/cango_three_gears_brython_div2.py"
-cango_three_gears = button2(cango_three_gears_url)
-doc["cango_three_gears"].bind("click", cango_three_gears.do)
-################################## cango_three_gears end
+score_search_url = "https://gist.github.com/41123251/131bf6a2dd798716d204d0349f501868"
+score_search = button2(score_search_url)
+doc["score_search"].bind("click", score_search.do)
+################################## score_search end
 ################################## bsnake start
 bsnake_url = "https://gist.githubusercontent.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d/raw/f7a85d737d6723d5e34c526d5daee990ed92c32b/kmol_snakey.py"
 bsnake = button2(bsnake_url)
