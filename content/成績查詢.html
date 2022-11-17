@@ -240,7 +240,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.github.com/41123251/131bf6a2dd798716d204d0349f501868"
+        url = "https://gist.github.com/41123251/131bf6a2dd798716d204d0349f501868.js"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -387,10 +387,10 @@ def add2(ev):
 doc["add1to100part2"].bind('click', add2)
 # 以下為運用 button2 class 的通用 gist 程式導入區
 ################################## cango_three_gears start
-cango_three_gears_url = "https://gist.githubusercontent.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d/raw/f7a85d737d6723d5e34c526d5daee990ed92c32b/cango_three_gears_brython_div2.py"
-cango_three_gears = button2(cango_three_gears_url)
-doc["cango_three_gears"].bind("click", cango_three_gears.do)
-################################## cango_three_gears end
+score_search_url = "https://gist.github.com/41123251/131bf6a2dd798716d204d0349f501868"
+score_search = button2(score_search_url)
+doc["score_search"].bind("click", score_search.do)
+################################## score_search end
 ################################## bsnake start
 bsnake_url = "https://gist.githubusercontent.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d/raw/f7a85d737d6723d5e34c526d5daee990ed92c32b/kmol_snakey.py"
 bsnake = button2(bsnake_url)
