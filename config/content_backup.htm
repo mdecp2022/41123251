@@ -327,7 +327,7 @@ brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
 }
 &lt;/script&gt;</pre>
 <p>成績查詢:</p>
-<p><button id="score search">score search</button></p>
+<p><button id="score search 1b">score search 1b</button><button id="score search 1a">score search 1a</button></p>
 <p>將 iterable 與 iterator <a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438">相關說明</a>, 利用 Brython 與 Ace Editor 整理在這個頁面.</p>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -388,7 +388,7 @@ def run1():
     except:
         url = "https://gist.githubusercontent.com/41123251/131bf6a2dd798716d204d0349f501868/raw/dcbb7c9a252c8292df7f1fd31610ca85ade83bbc/score.py"
     prog = open(url).read()
-
+    
     # 將程式載入編輯區
     Ace1.editor.setValue(prog)
     Ace1.editor.scrollToRow(0)
