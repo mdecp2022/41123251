@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='w14-1.html'>w14-1</a></li></ul><li><a href='w15.html'>w15</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='w14-1.html'>w14-1</a></li></ul><li><a href='w15.html'>w15</a></li></ul><li class='has-children'><a href='滯留區.html'>滯留區</a><ul class='dropdown'><li><a href='12_22.html'>12_22</a></li></ul><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -156,205 +156,137 @@ c = float(c)
 f = c*9/5 + 32
 print(c, f)</pre>
 <p><span>----------------------------</span></p>
-<!-- 
-在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
--->
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+</p>
+<p><button id="溫度轉換">溫度轉換</button></p>
+<p>將 iterable 與 iterator <a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438">相關說明</a>, 利用 Brython 與 Ace Editor 整理在這個頁面.</p>
+<p><!-- 導入 brython 程式庫 --></p>
+<p>
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
-<!-- 啟動 Brython -->
+</p>
+<p><!-- 啟動 Brython --></p>
 <p>
 <script>
 window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','/downloads/py/']});
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
-</script>
-<!-- 以下事先在頁面中加入 id="brython_div" 的 div 標註
-之後可利用 Brython 的 document 模組與此 html 標註對應
---></p>
-<!-- 利用 html 建立一個 id="btn1" 的按鈕 -->
-<p><button id="btn1">取使用者輸入</button></p>
-<div id="brython_div"></div>
-<p>
-<script type="text/python">
-from browser import html, document
-# Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
-#user_input_temp = input("請輸入攝氏溫度值:")
-# 接著列出 user_input_temp 變數的資料型別
-# 但是在頁面中 Brython 的 print() 將會顯示在 log 而非頁面
-#print(type(user_input_temp))
-# 這裡定義一個 brython_div 變數, 透過 document[] 與頁面中 id="brython_div" 的位置對應
-brython_div = document["brython_div"]
-# 看能不能直接將變數值字串列在標註 id 為 "brython_div" 的頁面位置
-#brython_div <= user_input_temp
-# 之後若要列出 html, 則需要透過 Brython 的 html 模組
-# 接下來要設法按下按鈕之後才執行取使用者 input 的流程
-# 首先 comment 掉前面的 input() 與 print(), 同時蓋掉輸出, 並利用事件導向設計一個函式
-def get_input(env):
-    user_input_temp = input("請輸入攝氏溫度值:")
-    brython_div <= user_input_temp
-# 透過 Brython browser 模組中的 document 物件將 id="btn1" 的物件中的 bind() 方法
-# 讓使用者 click 後會經由瀏覽器中的 event 通知執行 get_input 函式
-document["btn1"].bind('click', get_input)
 </script>
 </p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 
-在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
---&gt;
-&lt;script src="./../cmsimde/static/brython.js"&gt;&lt;/script&gt;
-&lt;script src="./../cmsimde/static/brython_stdlib.js"&gt;&lt;/script&gt;
-&lt;!-- 啟動 Brython --&gt;
-&lt;p&gt;
-&lt;script&gt;// &lt;![CDATA[
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','/downloads/py/']});
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="./../cmsimde/static/Cango-24v03-min.js"></script>
+<script src="./../cmsimde/static/gearUtils-09.js"></script>
+<script src="./../cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="./../cmsimde/static/sylvester.js"></script>
+<script src="./../cmsimde/static/PrairieDraw.js"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src1"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
 }
-// ]]&gt;&lt;/script&gt;
-&lt;!-- 以下事先在頁面中加入 id="brython_div" 的 div 標註
-之後可利用 Brython 的 document 模組與此 html 標註對應
---&gt;&lt;/p&gt;
-&lt;!-- 利用 html 建立一個 id="btn1" 的按鈕 --&gt;
-&lt;p&gt;&lt;button id="btn1"&gt;取使用者輸入&lt;/button&gt;&lt;/p&gt;
-&lt;div id="brython_div"&gt;&lt;/div&gt;
-&lt;p&gt;
-&lt;script type="text/python"&gt;// &lt;![CDATA[
-from browser import html, document
-# Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
-#user_input_temp = input("請輸入攝氏溫度值:")
-# 接著列出 user_input_temp 變數的資料型別
-# 但是在頁面中 Brython 的 print() 將會顯示在 log 而非頁面
-#print(type(user_input_temp))
-# 這裡定義一個 brython_div 變數, 透過 document[] 與頁面中 id="brython_div" 的位置對應
-brython_div = document["brython_div"]
-# 看能不能直接將變數值字串列在標註 id 為 "brython_div" 的頁面位置
-#brython_div &lt;= user_input_temp
-# 之後若要列出 html, 則需要透過 Brython 的 html 模組
-# 接下來要設法按下按鈕之後才執行取使用者 input 的流程
-# 首先 comment 掉前面的 input() 與 print(), 同時蓋掉輸出, 並利用事件導向設計一個函式
-def get_input(env):
-    user_input_temp = input("請輸入攝氏溫度值:")
-    brython_div &lt;= user_input_temp
-# 透過 Brython browser 模組中的 document 物件將 id="btn1" 的物件中的 bind() 方法
-# 讓使用者 click 後會經由瀏覽器中的 event 通知執行 get_input 函式
-document["btn1"].bind('click', get_input)
-// ]]&gt;&lt;/script&gt;
-&lt;/p&gt;</pre>
-<p><span> </span></p>
-<p><span>----------------------------</span></p>
-<p><span>w11</span></p>
-<p><a href="https://mdecp2022.github.io/site-41123251/content/Brython.html?src=https://gist.githubusercontent.com/41123251/7e1a1a39b3e88453cd2e8a058b3603a5/raw/8d45ad67c34adc94dde9a06522456940ec5cdfd7/w11text.py">成績缺考平均</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import ast
-# get stud_list first
-def get_stud(c_name):
-    courses = {"1a": "0747", "1b": "0761", "2a": "0773", "2b": "0786"}
-    #c_name = "1b"
-    c = courses[c_name]
-    url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + c + "&amp;column=True"
-    data = open(url).read().split("\n")
-    stud = data[:-1]
-    return stud
-    
-cp_stud = get_stud("1b")
-# get w10 quiz result
-cp_w11_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/8e59f90d8ff4f1ad4fecd4f7ee159f91eb6addf9/cp1b_w11_quiz_result.json"
-cp_w10_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/a6825f13b1bb0b61e09e74dd117729eefe1d947f/20221110_cp1b_w10_quiz.json"
-def get_score(url):
-    num_stud = 0
-    total_score = 0
-    json_data = open(url).read()
-    big_dict = ast.literal_eval(json_data)
-    data = big_dict["body"]["testuser"]
-    quiz_dict = {}
-    for i in data:
-        stud_id = data[i]["user_name"]
-        stud_score = int(float(data[i]["total_score"]))
-        quiz_dict[stud_id] = stud_score
-        num_stud = num_stud + 1
-        total_score = total_score + stud_score
-    return quiz_dict, num_stud, total_score
-    
-#cp_quiz, num_stud, total_score = get_score(cp_w10_quiz_url)
-cp_quiz, num_stud, total_score = get_score(cp_w11_quiz_url)
-cp_abs = []
-for stud in cp_stud:
+</script>
+</p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run1():
+    # 利用 get 取下 src 變數值
     try:
-        print(stud, cp_quiz[stud])
+        url = doc.query["src"]
     except:
-        # 缺考者沒有 quiz 成績
-        print(stud, "缺")
-        cp_abs.append(stud)
-print("\n考試平均分數為:", int(total_score/num_stud))
-# 列出缺考名單
-print("="*20)
-print("以下為 w10 缺考名單:")
-for stud in cp_abs:
-    print(stud)</pre>
-<p>----------------------------</p>
-<p>w10</p>
-<p><a href="https://mdecp2022.github.io/site-41123251/content/Brython.html?src=https://gist.githubusercontent.com/41123251/5b39f98fd20e75be6f54748d82faced6/raw/1894580e9e7d09bf00ecf8c0ff5db9ff2123834b/scorew111b.py">缺考名單顯示1b</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false;highlight:20" contenteditable="false"># 導入 ast 模組是希望利用其 literal_eval() 將 dict 格式的字串轉為 dict 資料型別
-# 以利隨後的取值運算
-import ast
-# 定義一個函式, 以班級代號字串作為輸入, 可以傳回各班修課學員的學號數列
-def get_stud(c_name):
-    # 將課程的班級代號字串作為 dict 的 key, 而 2022 fall 的課程代號作為對應值
-    # 使用者可以利用班級代號從 courses dict 取出課程代號
-    courses = {"1a": "0747", "1b": "0761", "2a": "0773", "2b": "0786"}
-    # 利用 c_name 從 courses 得到該學期的課程代號
-    c = courses[c_name]
-    # 利用課程代號從學校教務主機取的該班修課人員名單
-    url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + c + "&amp;column=True"
-    # 讀出各修課人員資料後, 以跳行符號切割, 得到的 data 為數列
-    data = open(url).read().split("\n")
-    # 因為最後一筆資料為空字串, 因此利用數列運算將其去除
-    stud = data[:-1]
-    # get_stud() 函式最後將對應班級的修課人員學號以數列格式傳回
-    return stud
-# 利用 "1b" 作為輸入從 get_stud() 取出該班修課學員學號數列
-cp_stud = get_stud("1b")
-# get w10 quiz result
-# # 以下為 1b w10 quiz 考試結果的 JSON 檔案
-cp_w10_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/8e59f90d8ff4f1ad4fecd4f7ee159f91eb6addf9/cp1b_w11_quiz_result.json"
-def get_score(url):
-    # 利用 open() 與 read() 讀取考試結果 JSON 檔案
-    json_data = open(url).read()
-    # 利用 ast.literal_eval() 將字串 dict, 轉為程式可用的 dict 資料型別
-    big_dict = ast.literal_eval(json_data)
-    # 從 big_dict 中, 取出 body 中的 testuser 欄位資料
-    data = big_dict["body"]["testuser"]
-    # 定義一個空 dict 資料變數, 隨後利用迴圈逐一將學號作為 key, 考試成績為 valude
-    # 組成 quiz_dict 的資料內容, 以便之後可以用學號當作輸入, 取得該員考試成績
-    quiz_dict = {}
-    for i in data:
-        # data 資料中的 user_name 為考試學員的帳號, 也就是學號
-        stud_id = data[i]["user_name"]
-        # data 資料中的 total_score 欄位為考試成績
-        # 因為考試成績為字串, 先轉為浮點數後, 再轉為整數
-        stud_score = int(float(data[i]["total_score"]))
-        # 逐一以學號為 key, 考試成績為對應 value, 將資料放入 quiz_dict
-        quiz_dict[stud_id] = stud_score
-    # 取得各學員的考試成績 quiz_dict 後, 將資料傳回
-    return quiz_dict
-# 從考試 JSON 檔案中取得考試結果的字典資料
-cp_quiz = get_score(cp_w10_quiz_url)
-# 設定一個空數列, 隨後將利用 append() 方法, 將缺考學員學號存入
-cp_abs = []
-# 從修課學員數列中, 逐一按照學號次序, 以重複迴圈將學號對應至 stud 變數
-for stud in cp_stud:
-    # 因為缺考學員在考試結果的 dict 中並無資料, 因此利用 try except 進行判斷
-    try:
-        # 針對 stud 學號, 有考試成績者, 列出其學號與得分
-        print(stud, cp_quiz[stud])
-    except:
-        # 缺考者沒有 quiz 成績, 則在其成績欄位印出"缺"
-        print(stud, "缺")
-        # 同時將缺考學員學號以 append() 方法逐一置入
-        cp_abs.append(stud)
-# 列出缺考名單
-print("="*20)
-print("以下為 w11 缺考名單:")
-# 因為 cp_abs 資料為 list, 在此利用 for 迴圈逐一列出
-for stud in cp_abs:
-    print(stud)</pre>
+        url = "https://gist.githubusercontent.com/41123251/75aef35bf8b8bed36ae90d55e3bed883/raw/717f94da17dcb779e9e8dc95490b03c691bf011e/w13_temp_1.py"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace1.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
+# 呼叫函式執行
+run1()
+</script>
+</p>
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+w13_temp_url = "https://gist.githubusercontent.com/41123251/75aef35bf8b8bed36ae90d55e3bed883/raw/717f94da17dcb779e9e8dc95490b03c691bf011e/w13_temp_1.py"
+
+# 從 gist 取得程式碼
+add_src = open(w13_temp_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+
+# id 為 "成績查詢1b" 的按鈕點按時, 執行 add 方法
+doc["score_w14"].bind('click', add)
+</script>
+</p>
+<p><!-- add 1 to 100 結束--></p>
+<p><!-- editor1 開始 --></p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<p><!-- 存擋表單開始 --></p>
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<p><!-- 存擋表單結束 --></p>
+<p></p>
+<p><!-- 執行與清除按鈕開始 --></p>
+<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
+<p></p>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
+<p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
+<div id="brython_div1"></div>
+<p><!-- editor1 結束 --></p>
 <br />w12 << <a href='w12.html'>Previous</a> <a href='w14.html'>Next</a> >> w14</div>
         
     <!-- footer -->
