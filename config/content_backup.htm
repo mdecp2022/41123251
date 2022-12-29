@@ -509,7 +509,7 @@ doc["score_w14"].bind('click', add)
 <p>※變數, 字串, 整數, 浮點數, 數列, Tuple, Dictionary, 函式, 重複迴圈, class, 物件導向, 資料庫, 這些名詞對您而言代表甚麼?</p>
 <p>代表著在學習程式語言時，最前端的部分，基本上，程式都是以這些去創造出來的。</p>
 <h2>w16</h2>
-<p>==</p>
+<p><a href="https://mdecp2022.github.io/site-41123251/content/Brython.html?src=https://gist.githubusercontent.com/41123251/74107f8a9ffa925d64f8aa2904aab3ce/raw/84ff18d60d2f9d1383218f5b6553c1d4649d2463/%25E7%25B6%25A0.py">綠方</a></p>
 <!-- 納入 Brython 環境 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -734,20 +734,7 @@ doc["power"].bind("click", launchAnimation)
 #browser.timer.set_interval(game, 100)
 </script>
 <p></p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 納入 Brython 環境 --&gt;
-&lt;script src="/static/brython.js"&gt;&lt;/script&gt;
-&lt;script src="/static/brython_stdlib.js"&gt;&lt;/script&gt;
-&lt;!-- 啟動 Brython --&gt;
-&lt;p&gt;
-&lt;script&gt;// &lt;![CDATA[
-window.onload=function(){
-brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
-}
-// ]]&gt;&lt;/script&gt;
-&lt;!-- 給定 brython_div1 division 標註 --&gt;&lt;/p&gt;
-&lt;div id="brython_div1"&gt;&lt;/div&gt;
-&lt;!-- 加入啟動按鈕後的 Rect 行走程式原始碼 --&gt;
-&lt;script type="text/python"&gt;// &lt;![CDATA[
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">
 # 這個程式用於 demo 綠色方塊沿著特定網格路徑行走
 # 從 Brython 程式庫中的 browser 模組導入 document 類別, 並以簡寫設定為 doc
 from browser import document as doc
@@ -953,10 +940,7 @@ origy = 1
 grid(origx, origy, w, h, wnum, hnum, pixel=1, color="black")
 
  
-
-doc["power"].bind("click", launchAnimation)
-#browser.timer.set_interval(game, 100)
-// ]]&gt;</pre><h1>滯留區</h1>
+</pre><h1>滯留區</h1>
 <p>放一些廢物</p>
 <p></p><h2>12_22</h2>
 <p></p>
